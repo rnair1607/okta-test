@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useOktaAuth } from "@okta/okta-react";
 
 const SignInForm = () => {
-  const { oktaAuth } = useOktaAuth();
-  const [sessionToken, setSessionToken] = useState();
+  // const { oktaAuth } = useOktaAuth();
+  // const [sessionToken, setSessionToken] = useState();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,10 +37,10 @@ const SignInForm = () => {
     setPassword(e.target.value);
   };
 
-  if (sessionToken) {
-    // Hide form while sessionToken is converted into id/access tokens
-    return null;
-  }
+  // if (sessionToken) {
+  //   // Hide form while sessionToken is converted into id/access tokens
+  //   return null;
+  // }
 
   return (
     <form onSubmit={handleSubmit}>
