@@ -10,7 +10,7 @@ const SignInForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    window.addEventListener("message", (event) => {
+    document.addEventListener("message", (event) => {
       const dataTest = {
         data: "Hello",
       };
