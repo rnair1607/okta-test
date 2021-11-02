@@ -10,15 +10,23 @@ const SignInForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    oktaAuth
-      .signInWithCredentials({ username, password })
-      .then((res) => {
-        const sessionToken = res.sessionToken;
-        setSessionToken(sessionToken);
-        // sessionToken is a one-use token, so make sure this is only called once
-        oktaAuth.signInWithRedirect({ sessionToken });
-      })
-      .catch((err) => console.log("Found an error", err));
+    window.addEventListener("message", (event) => {
+      const dataTest = {
+        data: "Hello",
+      };
+
+      event.source.postMessage(JSON.stringify(dataTest), event.target);
+    });
+
+    // oktaAuth
+    //   .signInWithCredentials({ username, password })
+    //   .then((res) => {
+    //     const sessionToken = res.sessionToken;
+    //     setSessionToken(sessionToken);
+    //     // sessionToken is a one-use token, so make sure this is only called once
+    //     oktaAuth.signInWithRedirect({ sessionToken });
+    //   })
+    //   .catch((err) => console.log("Found an error", err));
   };
 
   const handleUsernameChange = (e) => {
