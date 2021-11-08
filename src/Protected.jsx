@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const Home = () => <h3>Protected</h3>;
+const Home = () => {
+  useEffect(() => {
+    window.opener.onSuccess({ test: "works!" });
+  }, []);
+  return <h3>Protected</h3>;
+};
 export default Home;
