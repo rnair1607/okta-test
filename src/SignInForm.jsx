@@ -10,13 +10,13 @@ const SignInForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    document.addEventListener("message", (event) => {
-      const dataTest = {
-        data: "Hello",
-      };
+    // document.addEventListener("message", (event) => {
+    //   const dataTest = {
+    //     data: "Hello",
+    //   };
 
-      event.source.postMessage(JSON.stringify(dataTest), event.target);
-    });
+    //   event.source.postMessage(JSON.stringify(dataTest), event.target);
+    // });
 
     // oktaAuth
     //   .signInWithCredentials({ username, password })
@@ -27,6 +27,8 @@ const SignInForm = () => {
     //     oktaAuth.signInWithRedirect({ sessionToken });
     //   })
     //   .catch((err) => console.log("Found an error", err));
+
+    window.opener.onSuccess({ test: "works!" });
   };
 
   const handleUsernameChange = (e) => {
