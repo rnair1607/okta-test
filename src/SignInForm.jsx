@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import { useOktaAuth } from "@okta/okta-react";
+import { useOktaAuth } from "@okta/okta-react";
 
 const SignInForm = () => {
-  // const { oktaAuth } = useOktaAuth();
-  // const [sessionToken, setSessionToken] = useState();
+  const { oktaAuth } = useOktaAuth();
+  const [sessionToken, setSessionToken] = useState();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
