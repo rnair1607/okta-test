@@ -3,7 +3,7 @@ import { useOktaAuth } from "@okta/okta-react";
 
 const SignInForm = () => {
   const { oktaAuth } = useOktaAuth();
-  const [sessionToken, setSessionToken] = useState();
+  const [sessiontoken, setSessionToken] = useState();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,6 +25,7 @@ const SignInForm = () => {
         setSessionToken(sessionToken);
         // sessionToken is a one-use token, so make sure this is only called once
         oktaAuth.signInWithRedirect({ sessionToken });
+        console.log(sessiontoken);
       })
       .catch((err) => console.log("Found an error", err));
   };
