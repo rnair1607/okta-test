@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 
 const Home = () => {
   const { authState, oktaAuth } = useOktaAuth();
   const history = useHistory();
+
+  useEffect(() => {
+    if (authState?.isAuthenticated) {
+      window.opener.postMessage(
+        JSON.stringify(localStorage.getItem("okta-token-storage")),
+        "*"
+      );
+    }
+  }, []);
 
   if (!authState) {
     return <div>Loading...</div>;

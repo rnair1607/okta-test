@@ -9,7 +9,7 @@ import Protected from "./Protected";
 const AppWithRouterAccess = () => {
   const history = useHistory();
   const onAuthRequired = () => {
-    history.push("/login");
+    history.push("/protected");
   };
 
   const oktaAuth = new OktaAuth({
@@ -27,7 +27,7 @@ const AppWithRouterAccess = () => {
   return (
     <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
       <Route path="/" exact={true} component={Home} />
-      <SecureRoute path="/protected" component={Protected} />
+      <Route path="/protected" component={Protected} />
       <Route path="/login" render={() => <SignIn />} />
       <Route path="/login/callback" component={LoginCallback} />
     </Security>
